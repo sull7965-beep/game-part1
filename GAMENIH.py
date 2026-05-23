@@ -125,9 +125,16 @@ def spawn_enemy():
 for _ in range(3):
     spawn_enemy()
 
-def spawn_heal():   #membuat item heal muncul secara random di area game
+MAX_HEAL_ITEMS = 3 #heal item munculmax 3
+
+def spawn_heal():   #memunculkan heal item
+
+    if len(heal_items) >= MAX_HEAL_ITEMS:
+        return
+
     x = random.randint(50, WIDTH - 50)
     y = random.randint(50, HEIGHT - 50)
+
     heal_items.append(HealItem(x, y))
 
 running = True
